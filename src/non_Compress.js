@@ -436,7 +436,9 @@ var CPlayer = function() {
     };
     
 };
-document.addEventListener('click', function() {
+
+function click(){
+document.removeEventListener('click',click); 
 var gl = canvas.getContext("webgl2") || canvas.getContext("experimental-webgl2");
 var compileShader = function(prog, src, type){
     var sh = gl.createShader(type);
@@ -491,4 +493,6 @@ function render(){
 
     setTimeout(render, 1000/60);
 };
-});
+}
+
+document.addEventListener('click', click);
